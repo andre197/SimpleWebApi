@@ -41,7 +41,7 @@
                 route.MapRoute
                     (
                         "usual_route",
-                        "{controller=Home}/{action=Index}"
+                        "{controller=Home}/{action=Index}/{id?}"
                     );
             });
         }

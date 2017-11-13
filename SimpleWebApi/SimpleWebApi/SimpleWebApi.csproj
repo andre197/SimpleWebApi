@@ -19,6 +19,8 @@
   <ItemGroup>
     <ProjectReference Include="..\SimpleWebApi.Controllers\SimpleWebApi.Controllers.csproj" />
     <ProjectReference Include="..\SimpleWebApi.Data\SimpleWebApi.Data.csproj" />
+    <ProjectReference Include="..\SimpleWebApi.Services\SimpleWebApi.Services.csproj" />
+    <ProjectReference Include="..\SimpleWebApi.ViewModels\SimpleWebApi.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

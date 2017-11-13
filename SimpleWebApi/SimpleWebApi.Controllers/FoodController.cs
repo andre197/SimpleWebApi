@@ -20,7 +20,7 @@
         }
 
         [HttpGet]
-        [Route("Food/GetById/id:int")]
+        [Route("Food/GetById/{id}")]
         public IActionResult GetById(int id)
         {
             FoodViewModel result = this.foodServices.FindById(id);
@@ -63,7 +63,7 @@
         }
 
         [HttpPost]
-        [Route("Food/Delete/id:int")]
+        [Route("Food/Delete/{id}")]
         public IActionResult Delete(int id)
         {
             try

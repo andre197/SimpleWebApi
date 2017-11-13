@@ -16,9 +16,6 @@
         {
             using (var db = new FitnessApiDbContext())
             {
-                Mapper.Initialize(cfg => cfg.CreateMap<Food, FoodViewModel>()
-                    .ConvertUsing<FoodToFoodViewModelConverter>());
-
                 List<FoodViewModel> result = new List<FoodViewModel>();
 
                 var foodsAdded = db.Foods;
@@ -41,9 +38,6 @@
         {
             using (var db = new FitnessApiDbContext())
             {
-                Mapper.Initialize(cfg => cfg.CreateMap<Food, FoodViewModel>()
-                .ConvertUsing<FoodToFoodViewModelConverter>());
-
                 Food food = db.Foods.FirstOrDefault(f => f.Id == id);
 
                 if (food != null)
@@ -61,9 +55,6 @@
         {
             using (var db = new FitnessApiDbContext())
             {
-                Mapper.Initialize(cfg => cfg.CreateMap<AddOrUpdateFoodViewModel, Food>()
-                    .ConvertUsing<AddOrUpdateFoodViewModelToFoodConverter>());
-
                 db.Foods.Add(Mapper.Map<AddOrUpdateFoodViewModel, Food>(food));
 
                 db.SaveChanges();
@@ -96,9 +87,6 @@
 
                     if (food != null)
                     {
-                        Mapper.Initialize(cfg => cfg.CreateMap<FoodViewModel, Food>()
-                            .ConvertUsing<FoodViewModelToFoodConverter>());
-
                         food = Mapper.Map<FoodViewModel, Food>(model);
 
                         db.SaveChanges();
