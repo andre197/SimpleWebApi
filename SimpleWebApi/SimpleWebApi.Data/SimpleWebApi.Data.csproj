@@ -9,8 +9,4 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\SimpleWebApi.Models\SimpleWebApi.Models.csproj" />
-  </ItemGroup>
-
 </Project>

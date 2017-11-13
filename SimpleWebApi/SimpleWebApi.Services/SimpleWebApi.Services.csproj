@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SimpleWebApi.Data\SimpleWebApi.Data.csproj" />
-    <ProjectReference Include="..\SimpleWebApi.Models\SimpleWebApi.Models.csproj" />
     <ProjectReference Include="..\SimpleWebApi.ViewModels\SimpleWebApi.ViewModels.csproj" />
   </ItemGroup>
 

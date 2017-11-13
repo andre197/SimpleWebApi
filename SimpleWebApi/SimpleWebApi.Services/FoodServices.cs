@@ -4,7 +4,7 @@
     using AutoMapperHelper;
     using Contracts;
     using Data;
-    using Models;
+    using Data.Models;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -12,7 +12,7 @@
 
     public class FoodServices : IFoodServices
     {
-        public List<FoodViewModel> ListFoods()
+        public IEnumerable<FoodViewModel> ListFoods()
         {
             using (var db = new FitnessApiDbContext())
             {
@@ -54,6 +54,60 @@
                 }
 
                 throw new ArgumentNullException("The searched item was not found");
+            }
+        }
+
+        public void Insert(AddOrUpdateFoodViewModel food)
+        {
+            using (var db = new FitnessApiDbContext())
+            {
+                Mapper.Initialize(cfg => cfg.CreateMap<AddOrUpdateFoodViewModel, Food>()
+                    .ConvertUsing<AddOrUpdateFoodViewModelToFoodConverter>());
+
+                db.Foods.Add(Mapper.Map<AddOrUpdateFoodViewModel, Food>(food));
+
+                db.SaveChanges();
+            }
+        }
+
+        public void Delete(int foodId)
+        {
+            using (var db = new FitnessApiDbContext())
+            {
+                Food food = db.Foods.FirstOrDefault(f => f.Id == foodId);
+
+                if (food != null)
+                {
+                    db.Foods.Remove(food);
+                    db.SaveChanges();
+                }
+
+                throw new InvalidOperationException("No item with such id was found in the current entity");
+            }
+        }
+
+        public void Update(FoodViewModel model)
+        {
+            using (var db = new FitnessApiDbContext())
+            {
+                try
+                {
+                    Food food = db.Foods.FirstOrDefault(f => f.Id == model.Id);
+
+                    if (food != null)
+                    {
+                        Mapper.Initialize(cfg => cfg.CreateMap<FoodViewModel, Food>()
+                            .ConvertUsing<FoodViewModelToFoodConverter>());
+
+                        food = Mapper.Map<FoodViewModel, Food>(model);
+
+                        db.SaveChanges();
+                    }
+                }
+                catch (Exception)
+                {
+                    throw new InvalidOperationException("model not found");
+                }
             }
         }
     }

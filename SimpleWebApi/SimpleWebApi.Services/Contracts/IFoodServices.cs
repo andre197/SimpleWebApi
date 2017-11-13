@@ -5,8 +5,14 @@
 
     public interface IFoodServices
     {
-        List<FoodViewModel> ListFoods();
+        IEnumerable<FoodViewModel> ListFoods();
 
         FoodViewModel FindById(int id);
+
+        void Insert(AddOrUpdateFoodViewModel food);
+
+        void Delete(int foodId);
+
+        void Update(FoodViewModel model);
     }
 }

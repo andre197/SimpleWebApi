@@ -1,4 +1,4 @@
-﻿namespace SimpleWebApi.Models.Enumerations
+﻿namespace SimpleWebApi.Data.Models.Enumerations
 {
     public enum TypesOfFat
     {

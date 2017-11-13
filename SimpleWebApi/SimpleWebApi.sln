@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleWebApi", "SimpleWebApi\SimpleWebApi.csproj", "{C4E7A429-14BB-4A09-A7FE-A3FD550A3041}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleWebApi.Models", "SimpleWebApi.Models\SimpleWebApi.Models.csproj", "{18B2426C-95FF-4070-94C6-BFB15D0A2BFD}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleWebApi.Data", "SimpleWebApi.Data\SimpleWebApi.Data.csproj", "{15942E9D-F135-4AD5-B2B9-9884A7396CF8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleWebApi.Controllers", "SimpleWebApi.Controllers\SimpleWebApi.Controllers.csproj", "{442DD2BD-6AF3-4F31-96C0-2DD83226AE92}"
@@ -25,10 +23,6 @@ Global
 		{C4E7A429-14BB-4A09-A7FE-A3FD550A3041}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4E7A429-14BB-4A09-A7FE-A3FD550A3041}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4E7A429-14BB-4A09-A7FE-A3FD550A3041}.Release|Any CPU.Build.0 = Release|Any CPU
-		{18B2426C-95FF-4070-94C6-BFB15D0A2BFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18B2426C-95FF-4070-94C6-BFB15D0A2BFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{18B2426C-95FF-4070-94C6-BFB15D0A2BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{18B2426C-95FF-4070-94C6-BFB15D0A2BFD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{15942E9D-F135-4AD5-B2B9-9884A7396CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{15942E9D-F135-4AD5-B2B9-9884A7396CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15942E9D-F135-4AD5-B2B9-9884A7396CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU

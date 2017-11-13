@@ -1,10 +1,10 @@
-﻿namespace SimpleWebApi.Models
+﻿namespace SimpleWebApi.Data.Models
 {
     using Enumerations;
 
     public class Food
     {
-        public int Id { get; set; }
+        public int Id { get; set; } 
 
         public string  Name { get; set; }
 

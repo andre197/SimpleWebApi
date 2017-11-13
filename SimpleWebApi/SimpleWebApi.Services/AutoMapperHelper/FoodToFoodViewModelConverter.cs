@@ -1,10 +1,10 @@
 ﻿namespace SimpleWebApi.Services.AutoMapperHelper
 {
     using AutoMapper;
-    using Models;
+    using Data.Models;
     using ViewModels;
 
-    public class FoodToFoodViewModelConverter : ITypeConverter<Food, FoodViewModel>
+    internal class FoodToFoodViewModelConverter : ITypeConverter<Food, FoodViewModel>
     {
         private const int ProteinMultiplier = 4;
         private const int FatsMultiplier = 9;
