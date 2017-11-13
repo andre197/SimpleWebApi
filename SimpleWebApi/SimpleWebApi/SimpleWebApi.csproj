@@ -16,4 +16,9 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SimpleWebApi.Controllers\SimpleWebApi.Controllers.csproj" />
+    <ProjectReference Include="..\SimpleWebApi.Data\SimpleWebApi.Data.csproj" />
+  </ItemGroup>
+
 </Project>
