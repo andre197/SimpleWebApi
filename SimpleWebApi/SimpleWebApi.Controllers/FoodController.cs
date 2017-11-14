@@ -12,11 +12,11 @@
         private IFoodServices foodServices = new FoodServices();
 
         [HttpGet]
-        public IActionResult GetAll()
+        public IEnumerable<FoodViewModel> GetAll()
         {
             IEnumerable<FoodViewModel> result = this.foodServices.ListFoods();
 
-            return View(result);
+            return result;
         }
 
         [HttpGet]
@@ -25,7 +25,7 @@
         {
             FoodViewModel result = this.foodServices.FindById(id);
 
-            return View(result);
+            return new ObjectResult(result);
         }
 
         [HttpGet]
