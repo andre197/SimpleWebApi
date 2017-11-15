@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessWebApi", "FitnessWebApi\FitnessWebApi.csproj", "{775F4C91-4644-4431-8AFA-B50057F191D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessWebApi.DAL", "FitnessWebApi.DAL\FitnessWebApi.DAL.csproj", "{51226607-C115-49F9-A8E4-5703501CE4EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{775F4C91-4644-4431-8AFA-B50057F191D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{775F4C91-4644-4431-8AFA-B50057F191D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{775F4C91-4644-4431-8AFA-B50057F191D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{775F4C91-4644-4431-8AFA-B50057F191D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51226607-C115-49F9-A8E4-5703501CE4EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51226607-C115-49F9-A8E4-5703501CE4EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51226607-C115-49F9-A8E4-5703501CE4EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51226607-C115-49F9-A8E4-5703501CE4EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {21C29429-12B3-43A9-BD51-523FD607C91E}
+	EndGlobalSection
+EndGlobal
