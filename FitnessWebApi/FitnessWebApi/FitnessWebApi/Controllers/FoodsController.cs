@@ -79,7 +79,7 @@
 
             this.repository.AddEntity(food);
 
-            return this.Ok();
+            return this.Ok(food);
         }
 
         [HttpPut]
@@ -93,12 +93,11 @@
 
             try
             {
-
                 Food newFood = Mapper.Map<UpdateFoodBindingModel, Food>(value);
 
                 this.repository.UpdateEntity(id, newFood);
 
-                return this.StatusCode(HttpStatusCode.NoContent);
+                return this.Ok(newFood);
             }
             catch (Exception)
             {
@@ -141,7 +140,7 @@
             }
             catch (Exception)
             {
-                return this.StatusCode(HttpStatusCode.NoContent);
+                return this.BadRequest();
             }
         }
     }

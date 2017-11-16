@@ -22,7 +22,7 @@
             using (db)
             {
                 List<Food> foods = this.db.Foods
-                    .Include(f => f.Micronutrients) 
+                    .Include(f => f.Micronutrients)
                     .ToList();
 
                 return foods;
@@ -33,7 +33,9 @@
         {
             using (this.db)
             {
-                Food food = this.db.Foods.FirstOrDefault(f => f.Id == id);
+                Food food = this.db.Foods
+                    .Include(f => f.Micronutrients)
+                    .SingleOrDefault(f => f.Id == id);
 
                 return food;
             }
@@ -47,6 +49,7 @@
                     .Foods
                     .Where(f => f.Name
                         .Contains(name))
+                    .Include(f => f.Micronutrients)
                     .ToList();
 
                 return result;
@@ -75,7 +78,7 @@
             {
                 try
                 {
-                    Food food = this.db.Foods.FirstOrDefault(f => f.Id == id);
+                    Food food = this.db.Foods.SingleOrDefault(f => f.Id == id);
 
                     this.db.Foods.Remove(food);
                     this.db.SaveChanges();
@@ -93,12 +96,14 @@
             {
                 try
                 {
-                    Food food = this.db.Foods.FirstOrDefault(f => f.Id == id);
+                    Food food = this.db.Foods.SingleOrDefault(f => f.Id == id);
 
                     if (food == null)
                     {
                         throw new InvalidOperationException();
                     }
+
+                    newFood.Micronutrients = food.Micronutrients;
 
                     this.db.Foods.Remove(food);
                     this.db.Foods.Add(newFood);
@@ -116,10 +121,10 @@
             using (this.db)
             {
                 Micronutrient micronutrient = this.db.Micronutrients
-                            .FirstOrDefault(m => m.Id == micronutrientId);
+                            .SingleOrDefault(m => m.Id == micronutrientId);
 
                 this.db.Foods
-                    .FirstOrDefault(f => f.Id == foodId)
+                    .SingleOrDefault(f => f.Id == foodId)
                     .Micronutrients
                     .Add(micronutrient);
 

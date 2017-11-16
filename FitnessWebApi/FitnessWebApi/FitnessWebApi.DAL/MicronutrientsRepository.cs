@@ -35,7 +35,7 @@
                 Micronutrient micronutrient = this.db.Micronutrients
                     .Where(m => m.Id == id)
                     .Include(m => m.Foods)
-                    .FirstOrDefault();
+                    .SingleOrDefault();
 
                 return micronutrient;
             }
@@ -78,7 +78,7 @@
             {
                 try
                 {
-                    Micronutrient micronutrient = this.db.Micronutrients.FirstOrDefault(f => f.Id == id);
+                    Micronutrient micronutrient = this.db.Micronutrients.SingleOrDefault(f => f.Id == id);
 
                     this.db.Micronutrients.Remove(micronutrient);
                     this.db.SaveChanges();
@@ -103,6 +103,8 @@
                         throw new InvalidOperationException();
                     }
 
+                    newMicronutrient.Foods = micronutrient.Foods;
+
                     this.db.Micronutrients.Remove(micronutrient);
                     this.db.Micronutrients.Add(newMicronutrient);
                     this.db.SaveChanges();
@@ -119,10 +121,10 @@
             using (this.db)
             {
                 Food food = this.db.Foods
-                            .FirstOrDefault(f => f.Id == foodId);
+                            .SingleOrDefault(f => f.Id == foodId);
 
                 this.db.Micronutrients
-                    .FirstOrDefault(m => m.Id == micronutrientId)
+                    .SingleOrDefault(m => m.Id == micronutrientId)
                     .Foods
                     .Add(food);
 

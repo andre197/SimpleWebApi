@@ -12,6 +12,11 @@
 
         public FoodViewModel Convert(Food source, FoodViewModel destination, ResolutionContext context)
         {
+            if (source == null)
+            {
+                return null;
+            }
+
             decimal caloriesPerProtein = source.ProteinContent * ProteinMultiplier;
             decimal caloriesPerFat = source.FatsContent * FatsMultiplier;
             decimal caloriesPerSugar = source.SugarContent * SugarMultiplier;

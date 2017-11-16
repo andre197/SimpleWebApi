@@ -78,7 +78,7 @@
 
             this.repository.AddEntity(micronutrient);
 
-            return this.Ok();
+            return this.Ok(micronutrient);
         }
 
         [HttpPut]
@@ -97,7 +97,7 @@
 
                 this.repository.UpdateEntity(id, newFood);
 
-                return this.StatusCode(HttpStatusCode.NoContent);
+                return this.Ok(newFood);
             }
             catch (Exception)
             {
