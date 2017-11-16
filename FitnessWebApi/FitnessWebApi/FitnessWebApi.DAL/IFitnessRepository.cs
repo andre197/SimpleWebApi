@@ -1,19 +1,21 @@
 ﻿namespace FitnessWebApi.DAL
 {
-    using Data.Models;
-    using System;
     using System.Collections.Generic;
 
-    public interface IFitnessRepository
+    public interface IFitnessRepository<T>
     {
-        IEnumerable<Food> Foods();
+        IEnumerable<T> GetAll();
 
-        Food FoodById(int id);
+        T GetById(int id);
 
-        void AddFood(Food food);
+        IEnumerable<T> GetAllContaining(string name);
 
-        void UpdateFood(Food food);
+        void AddEntity(T entity);
 
-        void DeleteFood(int id);
+        void UpdateEntity(int id, T newEntity);
+
+        void DeleteEntity(int id);
+
+        void AddConnection(int onObjectId, int toObjectId);
     }
 }

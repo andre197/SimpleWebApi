@@ -1,42 +1,41 @@
 ﻿namespace FitnessWebApi.Controllers
 {
     using AutoMapper;
-    using AutoMapperHelper;
-    using BindingModels;
-    using DAL;
-    using DAL.Data;
-    using DAL.Data.Models;
+    using FitnessWebApi.BindingModels;
+    using FitnessWebApi.DAL;
+    using FitnessWebApi.DAL.Data;
+    using FitnessWebApi.DAL.Data.Models;
     using System;
     using System.Collections.Generic;
     using System.Net;
     using System.Web.Http;
     using ViewModels;
 
-    [RoutePrefix("api/Foods")]
-    public class FoodsController : ApiController
+    [RoutePrefix("api/Micronutrients")]
+    public class MicronutrientsController : ApiController
     {
-        private IFitnessRepository<Food> repository;
+        private IFitnessRepository<Micronutrient> repository;
 
-        public FoodsController()
+        public MicronutrientsController()
         {
-            this.repository = new FoodRepository(new FitnessDbContext());
+            this.repository = new MicronutrientsRepository(new FitnessDbContext());
         }
 
         // GET api/<controller>
         [HttpGet]
-        public IHttpActionResult Foods()
+        public IHttpActionResult Micronutrients()
         {
-            IEnumerable<Food> data = this.repository.GetAll();
-            List<FoodViewModel> result = new List<FoodViewModel>();
+            IEnumerable<Micronutrient> data = this.repository.GetAll();
+            List<MicronutrientViewModel> result = new List<MicronutrientViewModel>();
 
             return IEnumerableToViewModel(data, result);
         }
 
         [HttpGet]
         [Route("{id}")]
-        public IHttpActionResult FoodById(int id)
+        public IHttpActionResult MicronutrientById(int id)
         {
-            FoodViewModel result = Mapper.Map<Food, FoodViewModel>(this.repository.GetById(id));
+            MicronutrientViewModel result = Mapper.Map<Micronutrient, MicronutrientViewModel>(this.repository.GetById(id));
 
             if (result == null)
             {
@@ -47,7 +46,7 @@
         }
 
         [HttpGet]
-        public IHttpActionResult FoodByName([FromUri]string q)
+        public IHttpActionResult MicronutrientByName([FromUri]string q)
         {
             if (string.IsNullOrWhiteSpace(q))
             {
@@ -56,8 +55,8 @@
 
             try
             {
-                IEnumerable<Food> data = this.repository.GetAllContaining(q);
-                List<FoodViewModel> result = new List<FoodViewModel>();
+                IEnumerable<Micronutrient> data = this.repository.GetAllContaining(q);
+                List<MicronutrientViewModel> result = new List<MicronutrientViewModel>();
 
                 return IEnumerableToViewModel(data, result);
             }
@@ -68,23 +67,23 @@
         }
 
         [HttpPost]
-        public IHttpActionResult AddFood([FromBody]AddFoodBindingModel value)
+        public IHttpActionResult AddMicronutrient([FromBody]AddNutrientBindingModel value)
         {
             if (value == null)
             {
                 return this.BadRequest();
             }
 
-            Food food = Mapper.Map<AddFoodBindingModel, Food>(value);
+            Micronutrient micronutrient = Mapper.Map<AddNutrientBindingModel, Micronutrient>(value);
 
-            this.repository.AddEntity(food);
+            this.repository.AddEntity(micronutrient);
 
             return this.Ok();
         }
 
         [HttpPut]
         [Route("{id}")]
-        public IHttpActionResult UpdateFood(int id, [FromBody]UpdateFoodBindingModel value)
+        public IHttpActionResult UpdateMicronutrient(int id, [FromBody]UpdateMicronutrientBindingModel value)
         {
             if (value == null || id != value.Id)
             {
@@ -94,7 +93,7 @@
             try
             {
 
-                Food newFood = Mapper.Map<UpdateFoodBindingModel, Food>(value);
+                Micronutrient newFood = Mapper.Map<UpdateMicronutrientBindingModel, Micronutrient>(value);
 
                 this.repository.UpdateEntity(id, newFood);
 
@@ -120,28 +119,28 @@
             return this.Ok();
         }
 
-        private IHttpActionResult IEnumerableToViewModel(IEnumerable<Food> data, List<FoodViewModel> result)
+        private IHttpActionResult IEnumerableToViewModel(IEnumerable<Micronutrient> data, List<MicronutrientViewModel> result)
         {
             foreach (var item in data)
             {
-                result.Add(Mapper.Map<Food, FoodViewModel>(item));
+                result.Add(Mapper.Map<Micronutrient, MicronutrientViewModel>(item));
             }
 
             return Json(result);
         }
 
         [HttpPatch]
-        public IHttpActionResult AddMicronutrient([FromUri]int foodId, [FromUri]int micronutrientId)
+        public IHttpActionResult AddFood([FromUri]int micronutrientId , [FromUri]int foodId)
         {
             try
             {
-                this.repository.AddConnection(foodId, micronutrientId);
+                this.repository.AddConnection(micronutrientId, foodId);
 
-                return this.Ok();
+                return this.StatusCode(HttpStatusCode.NoContent);
             }
             catch (Exception)
             {
-                return this.StatusCode(HttpStatusCode.NoContent);
+                return this.BadRequest();
             }
         }
     }

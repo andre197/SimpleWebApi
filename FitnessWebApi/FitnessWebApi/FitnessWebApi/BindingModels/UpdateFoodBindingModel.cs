@@ -2,7 +2,7 @@
 {
     using System.ComponentModel.DataAnnotations;
 
-    public class FoodUpdateBindingModel
+    public class UpdateFoodBindingModel
     {
         [Required]
         public int Id { get; set; }
@@ -11,16 +11,16 @@
         [Range(3, 20)]
         public string Name { get; set; }
 
-        [Range(0, double.MaxValue)]
-        public double ProteinContent { get; set; }
-
-        [Range(0, double.MaxValue)]
-        public double SugarContent { get; set; }
+        [Required]
+        public string Category { get; set; }
+        
+        public decimal ProteinContent { get; set; }
+        
+        public decimal SugarContent { get; set; }
 
         [Required]
         public string Fats { get; set; }
-
-        [Range(0, double.MaxValue)]
-        public double FatsContent { get; set; }
+        
+        public decimal FatsContent { get; set; }
     }
 }

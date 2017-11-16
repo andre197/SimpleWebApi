@@ -2,6 +2,8 @@
 {
     using Enumerations;
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -36,6 +38,8 @@
                 this.name = value;
             }
         }
+
+        public Category Category { get; set; }
 
         public decimal ProteinContent
         {
@@ -80,5 +84,10 @@
                 this.fatsContent = value;
             }
         }
+
+        [NotMapped]
+        public int Count => this.Micronutrients.Count;
+
+        public virtual ICollection<Micronutrient> Micronutrients { get; set; } = new HashSet<Micronutrient>(); 
     }
 }

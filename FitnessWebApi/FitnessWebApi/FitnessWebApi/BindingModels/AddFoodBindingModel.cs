@@ -7,6 +7,10 @@
         [Required]
         [Range(3, 20)]
         public string Name { get; set; }
+            
+        [Required]
+        public string Category { get; set; }
+
         public decimal ProteinContent { get; set; }
         
         public decimal SugarContent { get; set; }

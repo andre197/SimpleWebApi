@@ -8,9 +8,11 @@
         public FitnessDbContext()
             : base(@"name=FitnessDb")
         {
-           // Database.SetInitializer(new DropCreateDatabaseAlways<FitnessDbContext>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<FitnessDbContext>());
         }
 
-        public DbSet<Food> Foods { get; set; }    
+        public DbSet<Food> Foods { get; set; }
+
+        public DbSet<Micronutrient> Micronutrients { get; set; }
     }
 }

@@ -18,10 +18,12 @@
 
             destination = new FoodViewModel(source.Id,
                         source.Name,
+                        source.Category.ToString(),
                         caloriesPerProtein,
                         caloriesPerSugar,
                         caloriesPerFat,
-                        source.Fats.ToString());
+                        source.Fats.ToString(),
+                        source.Count);
 
             return destination;
         }

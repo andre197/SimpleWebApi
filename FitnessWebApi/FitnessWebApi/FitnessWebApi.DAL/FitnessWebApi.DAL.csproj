@@ -49,10 +49,14 @@
   <ItemGroup>
     <Compile Include="DataException.cs" />
     <Compile Include="Data\FitnessDbContext.cs" />
+    <Compile Include="Data\Models\Enumerations\Category.cs" />
+    <Compile Include="Data\Models\Enumerations\TypeOfMicronutrients.cs" />
     <Compile Include="Data\Models\Enumerations\TypesOfFat.cs" />
     <Compile Include="Data\Models\Food.cs" />
-    <Compile Include="FitnessRepository.cs" />
+    <Compile Include="Data\Models\Micronutrient.cs" />
+    <Compile Include="FoodRepository.cs" />
     <Compile Include="IFitnessRepository.cs" />
+    <Compile Include="MicronutrientsRepository.cs" />
     <Compile Include="Migrations\201711151354016_InitialCreate.cs" />
     <Compile Include="Migrations\201711151354016_InitialCreate.Designer.cs">
       <DependentUpon>201711151354016_InitialCreate.cs</DependentUpon>
@@ -64,6 +68,10 @@
     <Compile Include="Migrations\201711151658068_PropertiesFromDoubleToDecimal.cs" />
     <Compile Include="Migrations\201711151658068_PropertiesFromDoubleToDecimal.Designer.cs">
       <DependentUpon>201711151658068_PropertiesFromDoubleToDecimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711161118551_MicronutrientsTableAddedCategoryColumnInFoodsAddedManyToManyAdded.cs" />
+    <Compile Include="Migrations\201711161118551_MicronutrientsTableAddedCategoryColumnInFoodsAddedManyToManyAdded.Designer.cs">
+      <DependentUpon>201711161118551_MicronutrientsTableAddedCategoryColumnInFoodsAddedManyToManyAdded.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711151658068_PropertiesFromDoubleToDecimal.resx">
       <DependentUpon>201711151658068_PropertiesFromDoubleToDecimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711161118551_MicronutrientsTableAddedCategoryColumnInFoodsAddedManyToManyAdded.resx">
+      <DependentUpon>201711161118551_MicronutrientsTableAddedCategoryColumnInFoodsAddedManyToManyAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
