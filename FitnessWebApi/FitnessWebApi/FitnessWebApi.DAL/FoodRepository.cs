@@ -65,9 +65,9 @@
                     this.db.Foods.Add(food);
                     this.db.SaveChanges();
                 }
-                catch
+                catch (Exception ex)
                 {
-                    throw new DataException("Unable to add food!");
+                    throw new DataException(ex.Message);
                 }
             }
         }
@@ -126,7 +126,7 @@
                 this.db.Foods
                     .SingleOrDefault(f => f.Id == foodId)
                     .Micronutrients
-                    .Add(micronutrient);
+                    .Add(new FoodsMicronutrients() { MicronutrientId = micronutrient.Id});
 
                 this.db.SaveChanges();
             }

@@ -1,93 +1,36 @@
 ﻿namespace FitnessWebApi.DAL.Data.Models
 {
     using Enumerations;
-    using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using Validation;
 
     public class Food
     {
         [Key]
         public int Id { get; set; }
 
-        [NotMapped]
-        private string name;
-        [NotMapped]
-        private decimal proteinContent;
-        [NotMapped]
-        private decimal sugarContent;
-        [NotMapped]
-        private decimal fatsContent;
-
-        public string Name
-        {
-            get => this.name;
-            set
-            {
-                if (value == null)
-                {
-                    throw new ArgumentNullException();
-                }
-                if (value.Length < 3 || value.Length > 20)
-                {
-                    throw new ArgumentException();
-                }
-
-                this.name = value;
-            }
-        }
+        [Required(ErrorMessage = ErrorMessages.RequiredName)]
+        [Range(3, 20, ErrorMessage = ErrorMessages.NameIsShorterLonger)]
+        public string Name { get; set; }
 
         public Category Category { get; set; }
 
-        public decimal ProteinContent
-        {
-            get => this.proteinContent;
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentException();
-                }
+        [BiggerThanZero(ErrorMessage = "Protein content cannot be lower than or equal to 0!")]
+        public decimal ProteinContent { get; set; }
 
-                this.proteinContent = value;
-            }
-        }
-
-        public decimal SugarContent
-        {
-            get => this.sugarContent;
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentException();
-                }
-
-                this.sugarContent = value;
-            }
-        }
+        [BiggerThanZero(ErrorMessage = "Sugar content cannot be lower than or equal to 0!")]
+        public decimal SugarContent { get; set; }
 
         public TypesOfFat Fats { get; set; }
 
-        public decimal FatsContent
-        {
-            get => this.fatsContent;
-            set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentException();
-                }
-
-                this.fatsContent = value;
-            }
-        }
+        [BiggerThanZero(ErrorMessage = "Fats content cannot be lower than or equal to 0!")]
+        public decimal FatsContent { get; set; }
 
         [NotMapped]
         public int Count => this.Micronutrients.Count;
 
-        public virtual ICollection<Micronutrient> Micronutrients { get; set; } = new HashSet<Micronutrient>(); 
+        public virtual ICollection<FoodsMicronutrients> Micronutrients { get; set; } = new HashSet<FoodsMicronutrients>();
     }
 }

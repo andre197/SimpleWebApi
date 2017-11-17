@@ -22,7 +22,7 @@
 
             CreateMap<Micronutrient, MicronutrientViewModel>()
                 .ForMember(dest => dest.FoodsContainingIt,
-                            src => src.MapFrom(m => m.Foods != null ? string.Join(", ", m.Foods.Select(f => f.Name)) : string.Empty));
+                            src => src.MapFrom(m => m.Foods != null ? string.Join(", ", m.Foods.Select(f => f.Food.Name)) : string.Empty));
         }
     }
 }

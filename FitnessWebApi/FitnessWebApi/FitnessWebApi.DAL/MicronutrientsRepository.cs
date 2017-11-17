@@ -126,7 +126,7 @@
                 this.db.Micronutrients
                     .SingleOrDefault(m => m.Id == micronutrientId)
                     .Foods
-                    .Add(food);
+                    .Add(new FoodsMicronutrients() { FoodId = food.Id });
 
                 this.db.SaveChanges();
             }
