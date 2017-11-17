@@ -1,14 +1,11 @@
 ﻿namespace FitnessWebApi.Controllers
 {
     using AutoMapper;
-    using AutoMapperHelper;
     using BindingModels;
     using DAL;
-    using DAL.Data;
     using DAL.Data.Models;
     using System;
     using System.Collections.Generic;
-    using System.Net;
     using System.Web.Http;
     using ViewModels;
 
@@ -21,8 +18,7 @@
         {
             this.repository = repository;
         }
-
-        // GET api/<controller>
+        
         [HttpGet]
         public IHttpActionResult Foods()
         {
