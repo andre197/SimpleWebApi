@@ -11,9 +11,9 @@
     {
         private FitnessDbContext db;
 
-        public MicronutrientsRepository(FitnessDbContext db)
+        public MicronutrientsRepository()
         {
-            this.db = db;
+            this.db = new FitnessDbContext();
         }
 
         public IEnumerable<Micronutrient> GetAll()

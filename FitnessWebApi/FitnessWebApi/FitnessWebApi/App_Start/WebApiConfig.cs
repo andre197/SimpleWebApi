@@ -23,20 +23,9 @@ namespace FitnessWebApi
                 cfg.CreateMap<Food, FoodViewModel>()
                     .ConvertUsing<FoodToFoodViewModelConverter>();
 
-                cfg.CreateMap<AddFoodBindingModel, Food>()
-                    .ConvertUsing<AddFoodBindingModelToFoodConverter>();
+                cfg.AddProfile(new FoodProfile());
 
-                cfg.CreateMap<UpdateFoodBindingModel, Food>()
-                    .ConvertUsing<FoodUpdateBindingModelToFoodConverter>();
-
-                cfg.CreateMap<AddNutrientBindingModel, Micronutrient>()
-                    .ConvertUsing<AddMicronutrientBindingModelToMicronutrientConverter>();
-
-                cfg.CreateMap<Micronutrient, MicronutrientViewModel>()
-                    .ConvertUsing<MicronutrientToMicronutrientViewModelConverter>();
-
-                cfg.CreateMap<UpdateMicronutrientBindingModel, Micronutrient>()
-                    .ConvertUsing<UpdateMicronutrientBindingModelToMicronutrientConverter>();
+                cfg.AddProfile(new MicronutrientsProfile());
             });
 
             // Configure Web API to use only bearer token authentication.

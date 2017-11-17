@@ -17,9 +17,9 @@
     {
         private IFitnessRepository<Food> repository;
 
-        public FoodsController()
+        public FoodsController(IFitnessRepository<Food> repository)
         {
-            this.repository = new FoodRepository(new FitnessDbContext());
+            this.repository = repository;
         }
 
         // GET api/<controller>

@@ -18,7 +18,7 @@
 
         public MicronutrientsController()
         {
-            this.repository = new MicronutrientsRepository(new FitnessDbContext());
+            this.repository = new MicronutrientsRepository();
         }
 
         // GET api/<controller>

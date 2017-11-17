@@ -12,9 +12,9 @@
     {
         private FitnessDbContext db;
 
-        public FoodRepository(FitnessDbContext db)
+        public FoodRepository()
         {
-            this.db = db;
+            this.db = new FitnessDbContext();
         }
 
         public IEnumerable<Food> GetAll()
