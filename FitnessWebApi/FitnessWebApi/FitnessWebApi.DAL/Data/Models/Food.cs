@@ -12,7 +12,8 @@
         public int Id { get; set; }
 
         [Required(ErrorMessage = ErrorMessages.RequiredName)]
-        [Range(3, 20, ErrorMessage = ErrorMessages.NameIsShorterLonger)]
+        [MinLength(3, ErrorMessage = ErrorMessages.NameIsShorterLonger)]
+        [MaxLength(20, ErrorMessage = ErrorMessages.NameIsShorterLonger)]
         public string Name { get; set; }
 
         public Category Category { get; set; }

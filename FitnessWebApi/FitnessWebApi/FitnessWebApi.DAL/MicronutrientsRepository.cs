@@ -67,7 +67,7 @@
                 }
                 catch
                 {
-                    throw new DataException("Unable to add food!");
+                    throw new DataException("Unable to add micronutrient!");
                 }
             }
         }

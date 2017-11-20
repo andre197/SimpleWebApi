@@ -84,6 +84,18 @@
     <Compile Include="Migrations\201711171626001_FoodsMicronutrientsTableAddedConnectionBetweenEntitiesAdded.Designer.cs">
       <DependentUpon>201711171626001_FoodsMicronutrientsTableAddedConnectionBetweenEntitiesAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711200829422_RangeAttributeChangedToMinAndMaxLenght.cs" />
+    <Compile Include="Migrations\201711200829422_RangeAttributeChangedToMinAndMaxLenght.Designer.cs">
+      <DependentUpon>201711200829422_RangeAttributeChangedToMinAndMaxLenght.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711200833536_RangeAttributeChangedToMinAndMaxLenghtToTheMicronutrientsEntity.cs" />
+    <Compile Include="Migrations\201711200833536_RangeAttributeChangedToMinAndMaxLenghtToTheMicronutrientsEntity.Designer.cs">
+      <DependentUpon>201711200833536_RangeAttributeChangedToMinAndMaxLenghtToTheMicronutrientsEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711200838125_RemoveMinLenghtFromTheMicronutrientsEntity.cs" />
+    <Compile Include="Migrations\201711200838125_RemoveMinLenghtFromTheMicronutrientsEntity.Designer.cs">
+      <DependentUpon>201711200838125_RemoveMinLenghtFromTheMicronutrientsEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -111,6 +123,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711171626001_FoodsMicronutrientsTableAddedConnectionBetweenEntitiesAdded.resx">
       <DependentUpon>201711171626001_FoodsMicronutrientsTableAddedConnectionBetweenEntitiesAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711200829422_RangeAttributeChangedToMinAndMaxLenght.resx">
+      <DependentUpon>201711200829422_RangeAttributeChangedToMinAndMaxLenght.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711200833536_RangeAttributeChangedToMinAndMaxLenghtToTheMicronutrientsEntity.resx">
+      <DependentUpon>201711200833536_RangeAttributeChangedToMinAndMaxLenghtToTheMicronutrientsEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711200838125_RemoveMinLenghtFromTheMicronutrientsEntity.resx">
+      <DependentUpon>201711200838125_RemoveMinLenghtFromTheMicronutrientsEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

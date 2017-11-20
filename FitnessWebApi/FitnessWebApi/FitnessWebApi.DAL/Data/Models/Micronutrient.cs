@@ -13,7 +13,7 @@
         public TypeOfMicronutrients Type { get; set; }
 
         [Required(ErrorMessage = "The name cannot be null")]
-        [Range(3,20, ErrorMessage = "The entered name is shorter than 3 symbols or longer than 20!")]
+        [MaxLength(20, ErrorMessage = ErrorMessages.NameIsShorterLonger)]
         public string Name { get; set; }
 
         [BiggerThanZero(ErrorMessage = "Quantity cannot be lower than or equal to 0!")]

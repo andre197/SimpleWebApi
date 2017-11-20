@@ -8,7 +8,7 @@
         public FitnessDbContext()
             : base(@"name=FitnessDb")
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<FitnessDbContext>());
+            // Database.SetInitializer(new DropCreateDatabaseIfModelChanges<FitnessDbContext>());
         }
 
         public DbSet<Food> Foods { get; set; }
