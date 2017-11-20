@@ -6,6 +6,7 @@
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Linq;
+    using System.Linq.Dynamic;
 
     public class MicronutrientsRepository : IFitnessRepository<Micronutrient>
     {
@@ -16,11 +17,12 @@
             this.db = new FitnessDbContext();
         }
 
-        public IEnumerable<Micronutrient> GetAll()
+        public IEnumerable<Micronutrient> GetAll(string orderBy)
         {
             using (this.db)
             {
                 List<Micronutrient> micronutrients = this.db.Micronutrients
+                    .OrderBy(orderBy)
                     .Include(m => m.Foods)
                     .ToList();
 
@@ -41,7 +43,7 @@
             }
         }
 
-        public IEnumerable<Micronutrient> GetAllContaining(string name)
+        public IEnumerable<Micronutrient> GetAllContaining(string name, string orderBy)
         {
             using (this.db)
             {
@@ -49,6 +51,7 @@
                     .Micronutrients
                     .Where(f => f.Name
                         .Contains(name))
+                    .OrderBy(orderBy)
                     .Include(m => m.Foods)
                     .ToList();
 

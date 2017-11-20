@@ -4,11 +4,11 @@
 
     public interface IFitnessRepository<T>
     {
-        IEnumerable<T> GetAll();
+        IEnumerable<T> GetAll(string orderBy);
 
         T GetById(int id);
 
-        IEnumerable<T> GetAllContaining(string name);
+        IEnumerable<T> GetAllContaining(string name, string orderBy);
 
         void AddEntity(T entity);
 

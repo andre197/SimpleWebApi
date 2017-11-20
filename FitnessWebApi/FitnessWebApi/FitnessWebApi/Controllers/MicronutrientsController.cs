@@ -23,9 +23,9 @@
 
         // GET api/<controller>
         [HttpGet]
-        public IHttpActionResult Micronutrients()
+        public IHttpActionResult Micronutrients(string orderBy = "Id")
         {
-            IEnumerable<Micronutrient> data = this.repository.GetAll();
+            IEnumerable<Micronutrient> data = this.repository.GetAll(orderBy);
             List<MicronutrientViewModel> result = new List<MicronutrientViewModel>();
 
             return IEnumerableToViewModel(data, result);
@@ -46,7 +46,7 @@
         }
 
         [HttpGet]
-        public IHttpActionResult MicronutrientByName([FromUri]string q)
+        public IHttpActionResult MicronutrientByName([FromUri]string q, string orderBy = "Id")
         {
             if (string.IsNullOrWhiteSpace(q))
             {
@@ -55,7 +55,7 @@
 
             try
             {
-                IEnumerable<Micronutrient> data = this.repository.GetAllContaining(q);
+                IEnumerable<Micronutrient> data = this.repository.GetAllContaining(q, orderBy);
                 List<MicronutrientViewModel> result = new List<MicronutrientViewModel>();
 
                 return IEnumerableToViewModel(data, result);

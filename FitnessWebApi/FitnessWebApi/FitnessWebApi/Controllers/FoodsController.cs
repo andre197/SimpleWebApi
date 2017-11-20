@@ -20,9 +20,10 @@
         }
         
         [HttpGet]
-        public IHttpActionResult Foods()
-        {
-            IEnumerable<Food> data = this.repository.GetAll();
+        public IHttpActionResult Foods(string orderBy = "Id")
+        { 
+
+            IEnumerable<Food> data = this.repository.GetAll(orderBy);
             List<FoodViewModel> result = new List<FoodViewModel>();
 
             return IEnumerableToViewModel(data, result);
@@ -43,7 +44,7 @@
         }
 
         [HttpGet]
-        public IHttpActionResult FoodByName([FromUri]string q)
+        public IHttpActionResult FoodByName([FromUri]string q, string orderBy = "Id")
         {
             if (string.IsNullOrWhiteSpace(q))
             {
@@ -52,7 +53,7 @@
 
             try
             {
-                IEnumerable<Food> data = this.repository.GetAllContaining(q);
+                IEnumerable<Food> data = this.repository.GetAllContaining(q, orderBy);
                 List<FoodViewModel> result = new List<FoodViewModel>();
 
                 return IEnumerableToViewModel(data, result);

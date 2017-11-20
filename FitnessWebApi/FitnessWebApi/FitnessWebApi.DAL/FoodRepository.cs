@@ -7,6 +7,7 @@
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
+    using System.Linq.Dynamic;
 
     public class FoodRepository : IFitnessRepository<Food>
     {
@@ -17,11 +18,12 @@
             this.db = new FitnessDbContext();
         }
 
-        public IEnumerable<Food> GetAll()
+        public IEnumerable<Food> GetAll(string orderBy)
         {
             using (db)
             {
                 List<Food> foods = this.db.Foods
+                    .OrderBy(orderBy)
                     .Include(f => f.Micronutrients)
                     .ToList();
 
@@ -41,7 +43,7 @@
             }
         }
 
-        public IEnumerable<Food> GetAllContaining(string name)
+        public IEnumerable<Food> GetAllContaining(string name, string orderBy)
         {
             using (this.db)
             {
@@ -49,6 +51,7 @@
                     .Foods
                     .Where(f => f.Name
                         .Contains(name))
+                    .OrderBy(orderBy)
                     .Include(f => f.Micronutrients)
                     .ToList();
 
